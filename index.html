@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Required meta tags-->
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!-- Color theme for statusbar (Android only) -->
+  <meta name="theme-color" content="#2196f3">
+  <!-- Your app title -->
+  <title>My App</title>
+  <!-- Path to Framework7 Library Bundle CSS -->
+  <link rel="stylesheet" href="css/framework7-bundle.min.css">
+  <link rel="stylesheet" href="css/framework7-icons.css">
+
+  <!-- Path to your custom app styles-->
+  <!-- <link rel="stylesheet" href="path/to/my-app.css"> -->
+</head>
+
+<body>
+  <!-- App root element -->
+  <div id="app">
+
+    <!-- Your main view, should have "view-main" class -->
+    <div class="view view-main">
+      <!-- Initial Page, "data-name" contains page name -->
+      <div data-name="home" class="page home">
+
+        <!-- Top Navbar -->
+        <div class="navbar">
+          <div class="navbar-bg"></div>
+          <div class="navbar-inner">
+            <div class="title">Menu Principal</div>
+          </div>
+        </div>
+
+        <!-- Bottom Toolbar -->
+        
+
+        <!-- Scrollable page content -->
+        <div class="page-content">
+          
+          <div class="block">
+              <a href="/listU/" class="col button button-fill color-cyan">EMPLEADOS</a>
+              <br>
+              <a href="/listD/" class="col button button-fill color-cyan">DEPARTAMENTOS</a>
+              <br>
+              <a href="/listH/" class="col button button-fill color-cyan">REGISTRO LABORAL</a>
+              <br>
+              
+          </div>
+        </div>
+      </div>
+
+    <!-- PAGINA LISTAR EMPLEADOS -->
+    <div data-name="listU" class="page stacked">
+
+      <!-- Top Navbar -->
+      <div class="navbar">
+        <div class="navbar-bg"></div>
+        <div class="navbar-inner">
+          <div class="left">
+            <a href="#" class="button back">
+              <i class="icon f7-icons">arrow_left</i>
+            </a>
+          </div>
+          <div class="title">
+
+            Lista Empleados</div>
+        </div>
+      </div>
+
+      
+
+      <!-- Scrollable page content -->
+      <div class="page-content">
+        
+          <div class="data-table card">
+            <table>
+              <thead>
+                <tr>
+                  <th class="label-cell">#</th>
+                  <th class="label-cell">Cedula</th>
+                  <th class="label-cell">Nombres</th>
+                  <th class="label-cell">Apellidos</th>
+                  <th class="label-cell">Direccion</th>
+                  <th class="label-cell">Telefono</th>
+                  <th class="label-cell">Cargo</th>
+                </tr>
+              </thead>
+              <tbody id="usuarios">
+              </tbody>
+            </table>
+          </div>
+        
+        <div class="block">
+          <a href="/recargar/" class="col button button-fill color-cyan">Crear Usuario</a>
+        </div>
+      </div>
+    </div>
+    <!-- ------------------------------- -->
+
+    <!-- LISTA HORARIOS -->
+    
+    <div data-name="listH" class="page stacked">
+
+      <!-- Top Navbar -->
+      <div class="navbar">
+        <div class="navbar-bg"></div>
+        <div class="navbar-inner">
+          <div class="left">
+            <a href="#" class="button back">
+              <i class="icon f7-icons">arrow_left</i>
+            </a>
+          </div>
+          <div class="title">
+
+            Lista Horario de Trabajo</div>
+        </div>
+      </div>
+
+      
+
+      <!-- Scrollable page content -->
+      <div class="page-content">
+        
+          <div class="data-table card">
+            <table>
+              <thead>
+                <tr>
+                  <th class="label-cell">ID</th>
+                  <th class="label-cell">Hora Entrada</th>
+                  <th class="label-cell">Hora de Salida</th>
+                  <th class="label-cell">Cedula</th>
+                  <th class="label-cell">Nombres</th>
+                  <th class="label-cell">Apellidos</th>
+                  
+                </tr>
+              </thead>
+              <tbody id="horarios">
+              </tbody>
+            </table>
+          </div>
+        
+        <div class="block">
+          <a href="/nuevaMarcaL/" class="col button button-fill color-cyan">Marcar</a>
+        </div>
+      </div>
+    </div>
+
+
+<!-- PAGINA -->
+    <!-- PAGINA LISTAR DEPARTAMENTOS -->
+
+    <div data-name="listD" class="page stacked">
+
+      <!-- Top Navbar -->
+       <!-- Top Navbar -->
+       <div class="navbar">
+        <div class="navbar-bg"></div>
+        <div class="navbar-inner">
+          <div class="left">
+            <a href="#"  id="backUpdateD"  class="button back">
+              <i class="icon f7-icons">arrow_left</i>
+            </a>
+          </div>
+          <div class="title">
+
+            Lista Departamentos</div>
+        </div>
+      </div>
+
+      <!-- Bottom Toolbar -->
+      <div class="toolbar toolbar-bottom">
+        <div class="toolbar-inner">
+          <!-- Toolbar links -->
+          <!-- <a href="#" class="link">Link 1</a>
+              <a href="#" class="link">Link 2</a> -->
+        </div>
+      </div>
+
+      <!-- Scrollable page content -->
+      <div class="page-content">
+        <div class="block">
+          <div class="data-table">
+            <table>
+              <thead>
+                <tr>
+                  <th class="label-cell">iD</th>
+                  <th class="label-cell">DEPARTAMENTO</th>
+                  
+
+                  
+                </tr>
+              </thead>
+              <tbody id="departamentos">
+
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="block">
+          <a href="/insertarDepartamento/" class="col button button-fill color-cyan">Crear Departamento</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- --------------------------------- -->
+
+
+
+
+    <!-- Pagina Insertar -->
+    <div data-name="recargar" class="page stacked">
+
+      <!-- Top Navbar -->
+      <div class="navbar">
+        <div class="navbar-bg"></div>
+        <div class="navbar-inner">
+          <div class="left">
+            <a href="#" class="button back">
+              <i class="icon f7-icons">arrow_left</i>
+            </a>
+          </div>
+          <div class="title">
+
+            Nuevo Usuario</div>
+        </div>
+      </div>
+
+      <!-- Bottom Toolbar -->
+      <div class="toolbar toolbar-bottom">
+        <div class="toolbar-inner">
+          <!-- Toolbar links -->
+          <!-- <a href="#" class="link">Link 1</a>
+                <a href="#" class="link">Link 2</a> -->
+        </div>
+      </div>
+
+      <!-- Scrollable page content -->
+      <div class="page-content">
+        <div class="block">
+          <form class="list" id="my-form">
+            <ul>
+              <li>
+                <div class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">Cedula</div>
+                    <div class="item-input-wrap">
+                      <input type="text" id="cedula" placeholder="Ej. 1401063217" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">Nombres</div>
+                    <div class="item-input-wrap">
+                      <input type="text" id="nombre" placeholder="" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">Apellidos</div>
+                    <div class="item-input-wrap">
+                      <input type="text" id="apellidos" placeholder="" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">Direccion</div>
+                    <div class="item-input-wrap">
+                      <input type="text" id="direccion" placeholder="" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">Telefono</div>
+                    <div class="item-input-wrap">
+                      <input type="text" id="telefono" placeholder="" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">Cargo</div>
+                    <div class="item-input-wrap">
+                      <select name="" id="cargo">
+
+
+                      </select>
+
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+
+            </ul>
+          </form>
+          <div class="block block-strong row">
+            <div class="col">
+              <a class="button button-fill convert-form-to-data" href="#" id="nuevoUsuario">Agregar Usuario</a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- -------------------------------------- -->
+    <!-- Pagina Insertar Laboral-->
+    <div data-name="nuevaMarcaL" class="page stacked">
+
+      <!-- Top Navbar -->
+      <div class="navbar">
+        <div class="navbar-bg"></div>
+        <div class="navbar-inner">
+          <div class="left">
+            <a href="#" class="button back">
+              <i class="icon f7-icons">arrow_left</i>
+            </a>
+          </div>
+          <div class="title">
+
+            Nuevo Usuario</div>
+        </div>
+      </div>
+
+      <!-- Bottom Toolbar -->
+      <div class="toolbar toolbar-bottom">
+        <div class="toolbar-inner">
+          <!-- Toolbar links -->
+          <!-- <a href="#" class="link">Link 1</a>
+                <a href="#" class="link">Link 2</a> -->
+        </div>
+      </div>
+
+      <!-- Scrollable page content -->
+      <div class="page-content">
+        <div class="block">
+          <form class="list" id="my-form">
+            <ul>
+              <li>
+                <div class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">id</div>
+                    <div class="item-input-wrap">
+                      <input type="text" id="idH" placeholder="" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">Hora De Entrada</div>
+                    <div class="item-input-wrap">
+                      <input type="datetime-local" id="horaEntrada" placeholder="" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">Hora de Salida</div>
+                    <div class="item-input-wrap">
+                      <input type="datetime-local" id="horaSalida" placeholder="" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">Cedula</div>
+                    <div class="item-input-wrap">
+                      <input type="text" id="cedulaH" placeholder="" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              
+
+
+            </ul>
+          </form>
+          <div class="block block-strong row">
+            <div class="col">
+              <a class="button button-fill convert-form-to-data" href="#" id="nuevaMarca">Agregar Marca</a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- -------------------------------------- -->
+     <!-- Pagina Insertar Departamento -->
+     <div data-name="insertarDepartamento" class="page stacked">
+
+      <!-- Top Navbar -->
+      <div class="navbar">
+        <div class="navbar-bg"></div>
+        <div class="navbar-inner">
+          <div class="left">
+            <a href="#" class="button back">
+              <i class="icon f7-icons">arrow_left</i>
+            </a>
+          </div>
+          <div class="title">
+
+            Nuevo Departamento</div>
+        </div>
+      </div>
+
+      <!-- Bottom Toolbar -->
+      <div class="toolbar toolbar-bottom">
+        <div class="toolbar-inner">
+          <!-- Toolbar links -->
+          <!-- <a href="#" class="link">Link 1</a>
+                <a href="#" class="link">Link 2</a> -->
+        </div>
+      </div>
+
+      <!-- Scrollable page content -->
+      <div class="page-content">
+        <div class="block">
+          <form class="list" id="my-form">
+            <ul>
+              <li>
+                <div class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">ID</div>
+                    <div class="item-input-wrap">
+                      <input type="text" id="iddepart" placeholder="" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">Departamento</div>
+                    <div class="item-input-wrap">
+                      <input type="text" id="departamento" placeholder="" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </form>
+          <div class="block block-strong row">
+            <div class="col">
+              <a class="button button-fill convert-form-to-data" href="#" id="nuevoDepartamento">Agregar Departamento</a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- ----------------------------------- -->
+    <!-- PAgina para Actualizar -->
+
+    <div data-name="actualizar" class="page stacked">
+
+      <!-- Top Navbar -->
+      <div class="navbar">
+        <div class="navbar-bg"></div>
+        <div class="navbar-inner">
+          <div class="left">
+            <a href="#" class="button back">
+              <i class="icon f7-icons">arrow_left</i>
+            </a>
+          </div>
+          <div class="title">
+
+            Actualizar Usuario</div>
+        </div>
+      </div>
+
+      <!-- Bottom Toolbar -->
+      <div class="toolbar toolbar-bottom">
+        <div class="toolbar-inner">
+          <!-- Toolbar links -->
+          <!-- <a href="#" class="link">Link 1</a>
+                <a href="#" class="link">Link 2</a> -->
+        </div>
+      </div>
+
+      <!-- Scrollable page content -->
+      <div class="page-content">
+        <div class="block">
+          <form class="list" id="my-form">
+            <ul>
+              <li>
+                <div class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">Cedula</div>
+                    <div class="item-input-wrap">
+                      <input type="text" id="ucedula" placeholder="Ej. 1401063217" readonly />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">Nombres</div>
+                    <div class="item-input-wrap">
+                      <input type="text" id="unombres" placeholder="" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">Apellidos</div>
+                    <div class="item-input-wrap">
+                      <input type="text" id="uapellidos" placeholder="" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">Direccion</div>
+                    <div class="item-input-wrap">
+                      <input type="text" id="udireccion" placeholder="" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">Telefono</div>
+                    <div class="item-input-wrap">
+                      <input type="text" id="utelefono" placeholder="" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">Cargo</div>
+                    <div class="item-input-wrap">
+                      <select name="" id="ucargo">
+
+
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+
+            </ul>
+          </form>
+          <div class="block block-strong row">
+            <div class="col">
+              <a class="button button-fill convert-form-to-data" href="#" id="guardarUsuario">Guardar Cambios</a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- ----------------------------------------------------- -->
+    <!-- PAgina para Actualizar Departamento -->
+    <div data-name="actualizarDepartamento" class="page stacked">
+
+      <!-- Top Navbar -->
+      <div class="navbar">
+        <div class="navbar-bg"></div>
+        <div class="navbar-inner">
+          <div class="left">
+            <a href="#" class="button back">
+              <i class="icon f7-icons">arrow_left</i>
+            </a>
+          </div>
+          <div class="title">
+
+            Actualizar Departamento</div>
+        </div>
+      </div>
+
+      <!-- Top Navbar -->
+      <div class="navbar">
+        <div class="navbar-bg"></div>
+        <div class="navbar-inner">
+          <div class="left">
+            <a href="#" class="button back">
+              <i class="icon f7-icons">arrow_left</i>
+            </a>
+          </div>
+          <div class="title">
+
+            Actualizar Departamento</div>
+        </div>
+      </div>
+
+      <!-- Bottom Toolbar -->
+      <div class="toolbar toolbar-bottom">
+        <div class="toolbar-inner">
+          <!-- Toolbar links -->
+          <!-- <a href="#" class="link">Link 1</a>
+                <a href="#" class="link">Link 2</a> -->
+        </div>
+      </div>
+
+      <!-- Scrollable page content -->
+      <div class="page-content">
+        <div class="block">
+          <form class="list" id="my-form">
+            <ul>
+              <li>
+                <div class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">ID</div>
+                    <div class="item-input-wrap">
+                      <input type="number" id="uid" placeholder="" readonly />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">Departamento</div>
+                    <div class="item-input-wrap">
+                      <input type="text" id="udepartamento" placeholder="" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              
+
+            </ul>
+          </form>
+          <div class="block block-strong row">
+            <div class="col">
+              <a class="button button-fill convert-form-to-data" href="#" id="guardarDepartamento">Guardar Cambios</a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    
+
+<!-- ---------------------------------------------------------- -->
+  </div>
+  </div>
+  <!-- Path to Framework7 Library Bundle JS-->
+  <script type="text/javascript" src="js/framework7-bundle.min.js"></script>
+  <!-- Path to your app js-->
+  <script type="text/javascript" src="js/my-app.js"></script>
+</body>
+
+</html>
